@@ -1,14 +1,20 @@
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { Outlet } from "react-router-dom";
+import Header from "./header";
+import Footer from "./footer";
 
 function Layout() {
     return (
         <>
-            <Container>header</Container>
-            <Container>
-                <Outlet />
+            <Header />
+            <Container fluid>
+                <Row className="justify-content-lg-center">
+                    <Col lg={10}>
+                        <Outlet />
+                    </Col>
+                </Row>
             </Container>
-            <Container>footer</Container>
+            <Footer />
         </>
     );
 }

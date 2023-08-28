@@ -1,9 +1,9 @@
-import { Row } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import styles from "./loading.module.scss";
 
 function Loading() {
     return (
-      <Row>
+      <Col>
         <svg xmlns="http://www.w3.org/2000/svg" className={styles.loading__img} viewBox="0 0 512 512">
           <path
             d="M320 146s24.36-12-64-12a160 160 0 10160 160"
@@ -23,7 +23,7 @@ function Loading() {
           />
         </svg>
         <div className="h2">Loading...</div>
-      </Row>
+      </Col>
     );
 }
 
