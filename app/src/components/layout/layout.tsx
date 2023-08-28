@@ -10,7 +10,9 @@ function Layout() {
             <Container fluid>
                 <Row className="justify-content-lg-center">
                     <Col lg={10}>
-                        <Outlet />
+                        <main>
+                            <Outlet />
+                        </main>
                     </Col>
                 </Row>
             </Container>

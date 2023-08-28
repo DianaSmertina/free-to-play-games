@@ -5,7 +5,7 @@ function Footer() {
         <Container fluid className="bg-secondary">
             <Row className="justify-content-lg-center">
                 <Col lg={10}>
-                    footer
+                    <footer>footer</footer>
                 </Col>
             </Row>
         </Container>

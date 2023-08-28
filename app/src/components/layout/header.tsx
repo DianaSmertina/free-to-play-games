@@ -5,13 +5,15 @@ function Header() {
         <Container fluid className="bg-dark">
             <Row className="justify-content-lg-center">
                 <Col lg={10}>
-                    <Image
-                        src="https://www.freetogame.com/assets/images/freetogame-logo.png"
-                        alt="logo"
-                        width={165}
-                        height={45}
-                    />
-                    header
+                    <header>
+                        <Image
+                            src="https://www.freetogame.com/assets/images/freetogame-logo.png"
+                            alt="logo"
+                            width={165}
+                            height={45}
+                        />
+                        header
+                    </header>
                 </Col>
             </Row>
         </Container>

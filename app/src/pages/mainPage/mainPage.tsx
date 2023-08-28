@@ -1,15 +1,13 @@
-import Loading from "../../components/loading/loading";
-import { useGetAllGamesQuery } from "../../redux/freeToPlayApi";
+import { Row } from "react-bootstrap";
+import Toolbar from "../../components/toolbar/toolbar";
+import Cards from "../../components/cards/cards";
 
-function MainPage() {
-    const { data, isError, isFetching } = useGetAllGamesQuery();
-    console.log(data);
+function MainPage() {    
     return (
-        <>
-            <div className="h1">Main page</div>
-            {isFetching && <Loading />}
-            {isError && "Error occurred"}
-        </>
+        <Row>
+            <Toolbar />
+            <Cards />
+        </Row>
     );
 }
 
