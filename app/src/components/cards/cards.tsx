@@ -5,16 +5,20 @@ import CardTemplate from "./cardTemplate";
 
 function Cards() {
     const { data, isError, isFetching } = useGetAllGamesQuery();
-    
+
     return (
         <Col xs={9} className="border">
-            {isFetching && <Loading />}
-            {isError && <p>Error occurred</p>}
             <Row className="justify-content-center">
-                {!isFetching && !isError && data && data.length > 0 && data.map((el) => <CardTemplate key={el.id} data={el}/>)}
+                {isFetching && <Loading />}
+                {isError && <p>Error occurred</p>}
+                {!isFetching &&
+                    !isError &&
+                    data &&
+                    data.length > 0 &&
+                    data.map((el) => <CardTemplate key={el.id} data={el} />)}
             </Row>
         </Col>
-    )
+    );
 }
 
 export default Cards;

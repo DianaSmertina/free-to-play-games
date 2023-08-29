@@ -1,8 +1,8 @@
-import { Container, Image, Row, Col } from "react-bootstrap";
+import { Image, Row, Col } from "react-bootstrap";
 
 function Header() {
     return (
-        <Container fluid className="bg-dark">
+        <Col className="bg-dark flex-grow-0">
             <Row className="justify-content-lg-center">
                 <Col lg={10}>
                     <header>
@@ -12,11 +12,10 @@ function Header() {
                             width={165}
                             height={45}
                         />
-                        header
                     </header>
                 </Col>
             </Row>
-        </Container>
+        </Col>
     );
 }
 

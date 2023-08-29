@@ -5,19 +5,21 @@ import Footer from "./footer";
 
 function Layout() {
     return (
-        <>
-            <Header />
-            <Container fluid>
-                <Row className="justify-content-lg-center">
-                    <Col lg={10}>
-                        <main>
-                            <Outlet />
-                        </main>
-                    </Col>
-                </Row>
-            </Container>
-            <Footer />
-        </>
+        <Container fluid className="p-0 vh-100">
+            <Row className="flex-column" style={{minHeight:"100vh"}}>
+                <Header />
+                <Col className="align-self-center">
+                    <Row className="justify-content-lg-center">
+                        <Col lg={10}>
+                            <main>
+                                <Outlet />
+                            </main>
+                        </Col>
+                    </Row>
+                </Col>
+                <Footer />
+            </Row>
+        </Container>
     );
 }
 

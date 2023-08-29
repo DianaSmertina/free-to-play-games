@@ -1,13 +1,21 @@
 import { useParams } from "react-router-dom";
+import { useGetGameByIdQuery } from "../../redux/freeToPlayApi";
+import Loading from "../../components/loading/loading";
+import { Row } from "react-bootstrap";
+import Game from "../../components/game/game";
+import { Link } from "react-router-dom";
 
 function GamePage() {
     const { gameId } = useParams();
+    const { data, isError, isFetching } = useGetGameByIdQuery(gameId || "");
 
     return (
-        <>
-            <div className="h1">Game Page</div>
-            <p>Game ID: {gameId}</p>
-        </>
+        <Row className="justify-content-center">
+            <Link to="/">Back on main page</Link>
+            {isFetching && <Loading />}
+            {isError && <p>Error occurred</p>}
+            {!isFetching && !isError && data && <Game data={data} />}
+        </Row>
     );
 }
 

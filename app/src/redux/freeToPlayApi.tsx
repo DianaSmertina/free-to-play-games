@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { IGame } from "../types/types";
+import { IGame, IGameExtended } from "../types/types";
 const key = import.meta.env.VITE_API_KEY;
 
 export const freeToPlayApi = createApi({
@@ -8,7 +8,10 @@ export const freeToPlayApi = createApi({
         baseUrl: "https://free-to-play-games-database.p.rapidapi.com/api",
         prepareHeaders: (headers) => {
             headers.set("X-RapidAPI-Key", key);
-            headers.set("X-RapidAPI-Host", "free-to-play-games-database.p.rapidapi.com");
+            headers.set(
+                "X-RapidAPI-Host",
+                "free-to-play-games-database.p.rapidapi.com"
+            );
             return headers;
         },
     }),
@@ -16,7 +19,15 @@ export const freeToPlayApi = createApi({
         getAllGames: builder.query<Array<IGame>, void>({
             query: () => "games",
         }),
+        getGameById: builder.query<IGameExtended, string>({
+            query: (id) => {
+                return {
+                    url: "game",
+                    params: { id },
+                };
+            },
+        }),
     }),
 });
 
-export const { useGetAllGamesQuery } = freeToPlayApi;
+export const { useGetAllGamesQuery, useGetGameByIdQuery } = freeToPlayApi;

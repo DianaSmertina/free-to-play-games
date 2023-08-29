@@ -3,7 +3,7 @@ import styles from "./loading.module.scss";
 
 function Loading() {
     return (
-      <Col>
+      <Col xs={2}>
         <svg xmlns="http://www.w3.org/2000/svg" className={styles.loading__img} viewBox="0 0 512 512">
           <path
             d="M320 146s24.36-12-64-12a160 160 0 10160 160"

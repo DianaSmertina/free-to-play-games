@@ -11,3 +11,19 @@ export interface IGame {
     thumbnail: string;
     title: string;
 }
+
+export interface IGameExtended extends IGame {
+    description: string;
+    minimum_system_requirements: {
+        graphics: string;
+        memory: string;
+        os: string;
+        processor: string;
+        storage: string;
+    }
+    screenshots: Array<{
+        id: number;
+        image: string;
+    }>;
+    status: string;
+}
