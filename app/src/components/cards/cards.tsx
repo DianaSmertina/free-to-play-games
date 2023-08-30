@@ -12,7 +12,11 @@ function Cards() {
     const addPagination = () => {
         const pageAmount = Math.ceil((data?.length || 0) / CARDS_ON_PAGE);
         const paginationItems = new Array(pageAmount).fill("").map((_, i) => (
-            <Pagination.Item key={i + 1} active={i + 1 === page} onClick={() => setPage(i + 1)}>
+            <Pagination.Item
+                key={i + 1}
+                active={i + 1 === page}
+                onClick={() => setPage(i + 1)}
+            >
                 {i + 1}
             </Pagination.Item>
         ));
@@ -35,11 +39,14 @@ function Cards() {
                     data
                         .slice((page - 1) * CARDS_ON_PAGE, page * CARDS_ON_PAGE)
                         .map((el) => <CardTemplate key={el.id} data={el} />)}
-                <Pagination>
-                    <Pagination.First />
-                    {addPagination()}
-                    <Pagination.Last />
-                </Pagination>
+
+                {data && (
+                    <Pagination className="d-flex w-100 flex-wrap justify-content-center">
+                        <Pagination.First />
+                        {addPagination()}
+                        <Pagination.Last />
+                    </Pagination>
+                )}
             </Row>
         </Col>
     );
