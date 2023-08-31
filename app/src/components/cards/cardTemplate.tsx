@@ -3,8 +3,9 @@ import { IGame } from "../../types/types";
 import { Link } from "react-router-dom";
 
 import styles from "./cardTemplate.module.scss";
+import { formatDate } from "../../utilities/utilities";
 
-function CardTemplate({ data }: {data: IGame}) {
+function CardTemplate({ data }: { data: IGame }) {
     return (
         <Card style={{ width: "18rem" }} className="bg-light text-center m-2">
             <Link to={`/game/${data.id}`} className={styles.link}>
@@ -16,7 +17,7 @@ function CardTemplate({ data }: {data: IGame}) {
                     </Card.Subtitle>
                     <ListGroup variant="flush">
                         <ListGroup.Item className="bg-light">
-                            Release date: {data.release_date}
+                            Release date: {formatDate(data.release_date)}
                         </ListGroup.Item>
                         <ListGroup.Item className="bg-light">
                             Publisher: {data.publisher}

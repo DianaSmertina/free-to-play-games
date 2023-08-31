@@ -2,6 +2,7 @@ import { Col, Row, Image, ListGroup, Carousel } from "react-bootstrap";
 import { IGameExtended } from "../../types/types";
 
 import styles from "./game.module.scss";
+import { formatDate } from "../../utilities/utilities";
 
 function Game({ data }: { data: IGameExtended }) {
     return (
@@ -23,7 +24,7 @@ function Game({ data }: { data: IGameExtended }) {
                 <Col lg={8} className="text-center">
                     <p className="h1">{data.title}</p>
                     <p>{data.genre}</p>
-                    <p>Release date: {data.release_date}</p>
+                    <p>Release date: {formatDate(data.release_date)}</p>
                     <p>Publisher: {data.publisher}</p>
                     <p>Developer: {data.developer}</p>
                     <Carousel className={styles.carousel} data-bs-theme="dark">
