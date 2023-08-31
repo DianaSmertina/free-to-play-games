@@ -9,7 +9,7 @@ import styles from "./cardTemplate.module.scss";
 function CardTemplate({ data }: { data: IGame }) {
     return (
         <Card className={`${styles.card} bg-light text-center m-2`}>
-            <Link to={`/game/${data.id}`} className={styles.link}>
+            <Link to={`/game/${data.id}`} className="text-decoration-none">
                 <Card.Img variant="top" src={data.thumbnail} />
                 <Card.Body>
                     <Card.Title className="fs-5 fs-sm-6">
