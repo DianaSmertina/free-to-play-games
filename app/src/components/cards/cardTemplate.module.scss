@@ -1,3 +1,27 @@
+@import "../../styles/constants";
+
 .link {
     text-decoration: none;
+}
+
+.card {
+    width: 300px !important;
+}
+
+@media (max-width: $lg-width) {
+    .card {
+        width: 270px !important;
+    }
+}
+
+@media (max-width: $md-width) {
+    .card {
+        width: 200px !important;
+    }
+}
+
+@media (max-width: $sm-width) {
+    .card {
+        width: 170px !important;
+    }
 }

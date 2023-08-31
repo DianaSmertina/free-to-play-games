@@ -10,7 +10,7 @@ function Layout() {
                 <Header />
                 <Col className="align-self-center">
                     <Row className="justify-content-lg-center">
-                        <Col lg={10}>
+                        <Col lg={11} className="px-xs-4">
                             <main>
                                 <Outlet />
                             </main>

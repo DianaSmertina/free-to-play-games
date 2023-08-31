@@ -3,14 +3,33 @@ import { IGameExtended } from "../../types/types";
 
 import styles from "./game.module.scss";
 import { formatDate } from "../../utilities/utilities";
+import BackButton from "../backButton.tsx/backButton";
 
 function Game({ data }: { data: IGameExtended }) {
     return (
         <Col>
             <Row className="justify-content-center align-content-center">
-                <Col lg={4} className="text-center">
-                    <Image src={data.thumbnail} alt="game image" width={300} />
-                    <p>System requirements:</p>
+                <Col lg={4} className="text-center flex-column">
+                    <Row className="flex-column">
+                        <Col><Image src={data.thumbnail} alt="game image" width={300} className="mb-2" /></Col>
+                        <Col><BackButton /></Col>
+                    </Row>
+                </Col>
+                <Col lg={8}>
+                    <p className="h1 text-center">{data.title}</p>
+                    <ListGroup variant="flush">
+                        <ListGroup.Item>{data.genre}</ListGroup.Item>
+                        <ListGroup.Item>
+                            Release date: {formatDate(data.release_date)}
+                        </ListGroup.Item>
+                        <ListGroup.Item>
+                            Publisher: {data.publisher}
+                        </ListGroup.Item>
+                        <ListGroup.Item>
+                            Developer: {data.developer}
+                        </ListGroup.Item>
+                    </ListGroup>
+                    <p className="h3 text-center">System requirements:</p>
                     <ListGroup variant="flush">
                         {Object.entries(data.minimum_system_requirements).map(
                             (el) => (
@@ -20,13 +39,7 @@ function Game({ data }: { data: IGameExtended }) {
                             )
                         )}
                     </ListGroup>
-                </Col>
-                <Col lg={8} className="text-center">
-                    <p className="h1">{data.title}</p>
-                    <p>{data.genre}</p>
-                    <p>Release date: {formatDate(data.release_date)}</p>
-                    <p>Publisher: {data.publisher}</p>
-                    <p>Developer: {data.developer}</p>
+                    <p className="h3 text-center">Screenshots</p>
                     <Carousel className={styles.carousel} data-bs-theme="dark">
                         {data.screenshots.map((el) => (
                             <Carousel.Item key={el.id}>

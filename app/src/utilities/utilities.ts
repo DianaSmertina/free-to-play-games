@@ -5,6 +5,10 @@ export function formatDate(stringDate: string) {
     return `${day}.${month}.${year}`;
 }
 
+export function formatString(str: string) {
+    return str.toLowerCase().replace(" ", "-");
+}
+
 export function getGameDataCookie(gameId: string | undefined) {
     if (!gameId) return null;
     const cookies = document.cookie.split(';');

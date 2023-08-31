@@ -33,7 +33,7 @@ function Cards({data, isError, isFetching}: ICardsProps) {
     }, [page]);
 
     return (
-        <Col xs={9} className="border">
+        <Col md={10} sm={9} xs={8} className="my-3">
             <Row className="justify-content-center">
                 {isFetching && <Loading />}
                 {isError && <p>Error occurred</p>}

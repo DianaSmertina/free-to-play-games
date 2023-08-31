@@ -3,27 +3,26 @@ import { ChangeEvent, Dispatch, SetStateAction } from "react";
 import { IParamsGamesList } from "../../types/types";
 import { platforms, sortBy, tags } from "../../assets/data";
 
+import styles from "./toolbar.module.scss";
+import { formatString } from "../../utilities/utilities";
+
 interface IToolBarProps {
     setActiveParams: Dispatch<SetStateAction<IParamsGamesList>>;
 }
 
-function Toolbar({setActiveParams}: IToolBarProps) {
-    const formattingString = (str: string) => {
-        return str.toLowerCase().replace(" ", "-");
-    };
-
+function Toolbar({ setActiveParams }: IToolBarProps) {
     const checkHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setActiveParams((prev) => ({
             ...prev,
-            [formattingString(e.target.name)]: formattingString(e.target.value),
+            [formatString(e.target.name)]: formatString(e.target.value),
         }));
     };
 
     const addFilterCol = (options: Array<string>, title: string) => {
         return (
             <Col>
-                <div className="h2">{title}</div>
-                <Form.Group>
+                <div className="h3 my-3">{title}</div>
+                <Form.Group className={styles["radio_" + formatString(title)]}>
                     {options.map((el) => (
                         <Form.Check
                             key={el}
@@ -41,8 +40,8 @@ function Toolbar({setActiveParams}: IToolBarProps) {
     };
 
     return (
-        <Col xs={3} className="border">
-            <Row className="flex-column g-2 justify-content-center">
+        <Col md={2} sm={3} xs={4} className="px-4">
+            <Row className="flex-column g-2 justify-content-center position-fixed">
                 {addFilterCol(tags, "Category")}
                 {addFilterCol(platforms, "Platforms")}
                 {addFilterCol(sortBy, "Sort by")}
