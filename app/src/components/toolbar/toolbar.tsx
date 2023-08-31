@@ -1,4 +1,4 @@
-import { Col, Row, Form } from "react-bootstrap";
+import { Col, Row, Form, Button } from "react-bootstrap";
 import { ChangeEvent } from "react";
 import { platforms, sortBy, tags } from "../../assets/data";
 import { formatString } from "../../utilities/utilities";
@@ -52,12 +52,17 @@ function Toolbar() {
         );
     };
 
+    const resetHandler = () => {
+        dispatch(addParams({}));
+    }
+
     return (
         <Col md={2} sm={3} xs={4} className="px-4">
             <Row className="flex-column g-2 justify-content-center position-fixed">
                 {addFilterCol(tags, "Category")}
                 {addFilterCol(platforms, "Platforms")}
                 {addFilterCol(sortBy, "Sort by")}
+                <Button onClick={resetHandler}>Reset</Button>
             </Row>
         </Col>
     );
