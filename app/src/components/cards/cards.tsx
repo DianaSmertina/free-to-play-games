@@ -1,6 +1,6 @@
 import { Col, Row, Pagination } from "react-bootstrap";
 import Loading from "../loading/loading";
-import CardTemplate from "./cardTemplate";
+import CardTemplate from "../cardTemplate/cardTemplate";
 import { useEffect, useState } from "react";
 import { RootState } from "../../redux/store";
 import { useSelector } from "react-redux";
@@ -27,7 +27,7 @@ function Cards() {
     };
 
     useEffect(() => {
-        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
     }, [page]);
 
     return (

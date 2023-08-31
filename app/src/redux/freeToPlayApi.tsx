@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery, retry } from "@reduxjs/toolkit/query/react";
 import { IGame, IGameExtended, IParamsGamesList } from "../types/types";
-const key = import.meta.env.VITE_API_KEY;
+const key = process.env.VITE_API_KEY || "";
 
 const staggeredBaseQuery = retry(fetchBaseQuery({
     baseUrl: "https://free-to-play-games-database.p.rapidapi.com/api",

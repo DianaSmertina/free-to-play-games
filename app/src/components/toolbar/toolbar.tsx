@@ -58,11 +58,11 @@ function Toolbar() {
 
     return (
         <Col md={2} sm={3} xs={4} className="px-4">
-            <Row className="flex-column g-2 justify-content-center position-fixed">
+            <Row className={`flex-column g-2 justify-content-center` + styles.container}>
                 {addFilterCol(tags, "Category")}
                 {addFilterCol(platforms, "Platforms")}
                 {addFilterCol(sortBy, "Sort by")}
-                <Button onClick={resetHandler}>Reset</Button>
+                <Button onClick={resetHandler} className="my-3">Reset</Button>
             </Row>
         </Col>
     );

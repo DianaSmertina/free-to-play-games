@@ -3,9 +3,9 @@ import { Row } from "react-bootstrap";
 
 import { useState } from "react";
 import { getGameDataCookie } from "../../utilities/utilities";
-import GameFromCookies from "../../components/game/gameFromCookies";
+import GameFromCookies from "../../components/game/gameFromCookies/gameFromCookies";
 import { IGameExtended } from "../../types/types";
-import GameFromRTK from "../../components/game/gameFromRTK";
+import GameFromRTK from "../../components/game/gameFromRTK/gameFromRTK";
 
 function GamePage() {
     const { gameId } = useParams();
@@ -13,7 +13,11 @@ function GamePage() {
 
     return (
         <Row className="justify-content-center flex-column align-items-center py-4">
-            {data ? <GameFromCookies data={data} /> : <GameFromRTK gameId={gameId} />}
+            {data ? (
+                <GameFromCookies data={data} />
+            ) : (
+                <GameFromRTK gameId={gameId} />
+            )}
         </Row>
     );
 }

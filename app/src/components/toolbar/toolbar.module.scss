@@ -4,3 +4,11 @@
     width: 100%;
     padding-left: 5px;
 }
+
+.container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    overflow: auto;
+}
