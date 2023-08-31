@@ -1,7 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import Layout from "./components/layout/layout";
-import MainPage from "./pages/mainPage/mainPage";
-import GamePage from "./pages/gamePage/gamePage";
+
+import Layout from "./components/layout/Layout";
+import MainPage from "./pages/mainPage/MainPage";
+import GamePage from "./pages/gamePage/GamePage";
 
 function App() {
     return (

@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
 import { Row } from "react-bootstrap";
-
 import { useState } from "react";
+
 import { getGameDataCookie } from "../../utilities/utilities";
-import GameFromCookies from "../../components/game/gameFromCookies/gameFromCookies";
+import GameFromCookies from "../../components/game/gameFromCookies/GameFromCookies";
 import { IGameExtended } from "../../types/types";
-import GameFromRTK from "../../components/game/gameFromRTK/gameFromRTK";
+import GameFromRTK from "../../components/game/gameFromRTK/GameFromRTK";
 
 function GamePage() {
     const { gameId } = useParams();

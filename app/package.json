@@ -1,8 +1,9 @@
 {
-  "name": "app",
+  "name": "free-to-play-games",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": "Diana Smertina",
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build",

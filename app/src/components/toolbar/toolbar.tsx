@@ -1,8 +1,9 @@
 import { Col, Row, Form, Button } from "react-bootstrap";
 import { ChangeEvent } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import { platforms, sortBy, tags } from "../../assets/data";
 import { formatString } from "../../utilities/utilities";
-import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { setParams } from "../../redux/paramsSlice";
 

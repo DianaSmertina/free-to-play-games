@@ -1,5 +1,5 @@
 import { IGameExtended } from "../../../types/types";
-import Game from "../game";
+import Game from "../Game";
 
 function GameFromCookies({ data }: { data: IGameExtended }) {
     return <Game data={data} />;

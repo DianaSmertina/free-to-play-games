@@ -1,6 +1,7 @@
 import { Row } from "react-bootstrap";
-import Toolbar from "../../components/toolbar/toolbar";
-import Cards from "../../components/cards/cards";
+
+import Toolbar from "../../components/toolbar/Toolbar";
+import Cards from "../../components/cards/Cards";
 
 function MainPage() { 
     return (

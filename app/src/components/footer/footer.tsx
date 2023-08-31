@@ -1,4 +1,5 @@
 import { Row, Col, Image } from "react-bootstrap";
+
 import gitLogo from "../../assets/git-logo.png"
 
 function Footer() {

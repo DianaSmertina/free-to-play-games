@@ -1,4 +1,5 @@
 import { Col } from "react-bootstrap";
+
 import styles from "./loading.module.scss";
 
 function Loading() {

@@ -1,9 +1,10 @@
 import { Card, ListGroup } from "react-bootstrap";
-import { IGame } from "../../types/types";
 import { Link } from "react-router-dom";
 
-import styles from "./cardTemplate.module.scss";
+import { IGame } from "../../types/types";
 import { formatDate } from "../../utilities/utilities";
+
+import styles from "./cardTemplate.module.scss";
 
 function CardTemplate({ data }: { data: IGame }) {
     return (
