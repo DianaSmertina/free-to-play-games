@@ -31,17 +31,17 @@ function Game({ data }: { data: IGameExtended }) {
                     </ListGroup>
                     <p className="h3 text-center">System requirements:</p>
                     <ListGroup variant="flush">
-                        {Object.entries(data.minimum_system_requirements).map(
+                        {data.minimum_system_requirements ? (Object.entries(data.minimum_system_requirements).map(
                             (el) => (
                                 <ListGroup.Item key={el[0]}>
                                     {el[1]}
                                 </ListGroup.Item>
                             )
-                        )}
+                        )) : null}
                     </ListGroup>
                     <p className="h3 text-center">Screenshots</p>
                     <Carousel className={styles.carousel} data-bs-theme="dark">
-                        {data.screenshots.map((el) => (
+                        {data.screenshots ? (data.screenshots.map((el) => (
                             <Carousel.Item key={el.id}>
                                 <Image
                                     src={el.image}
@@ -49,7 +49,7 @@ function Game({ data }: { data: IGameExtended }) {
                                     className={styles.carousel_image}
                                 />
                             </Carousel.Item>
-                        ))}
+                        ))) : null}
                     </Carousel>
                 </Col>
             </Row>

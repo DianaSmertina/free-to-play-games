@@ -13,8 +13,7 @@ function GamePage() {
 
     return (
         <Row className="justify-content-center flex-column align-items-center py-4">
-            {data && <GameFromCookies data={data} />}
-            {!data && <GameFromRTK gameId={gameId} />}
+            {data ? <GameFromCookies data={data} /> : <GameFromRTK gameId={gameId} />}
         </Row>
     );
 }

@@ -2,16 +2,14 @@ import { Col, Row, Pagination } from "react-bootstrap";
 import Loading from "../loading/loading";
 import CardTemplate from "./cardTemplate";
 import { useEffect, useState } from "react";
-import { IGame } from "../../types/types";
+import { RootState } from "../../redux/store";
+import { useSelector } from "react-redux";
+import { useGetAllGamesQuery } from "../../redux/freeToPlayApi";
 
-interface ICardsProps {
-    data: Array<IGame> | undefined;
-    isError: boolean;
-    isFetching: boolean;
-}
-
-function Cards({data, isError, isFetching}: ICardsProps) {
+function Cards() {
     const [page, setPage] = useState(1);
+    const activeParams = useSelector((state: RootState) => state.activeParams.activeParams);
+    const { data, isError, isFetching } = useGetAllGamesQuery(activeParams);
     const CARDS_ON_PAGE = 30;
 
     const addPagination = () => {

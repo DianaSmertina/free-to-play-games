@@ -4,8 +4,10 @@ import {
     PreloadedState,
 } from "@reduxjs/toolkit";
 import { freeToPlayApi } from "./freeToPlayApi";
+import paramsReducer from './paramsSlice';
 
 const rootReducer = combineReducers({
+    activeParams: paramsReducer,
     [freeToPlayApi.reducerPath]: freeToPlayApi.reducer,
 });
 

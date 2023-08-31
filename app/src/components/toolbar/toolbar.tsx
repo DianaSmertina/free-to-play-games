@@ -1,21 +1,25 @@
 import { Col, Row, Form } from "react-bootstrap";
-import { ChangeEvent, Dispatch, SetStateAction } from "react";
-import { IParamsGamesList } from "../../types/types";
+import { ChangeEvent } from "react";
 import { platforms, sortBy, tags } from "../../assets/data";
+import { formatString } from "../../utilities/utilities";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
+import { addParams } from "../../redux/paramsSlice";
 
 import styles from "./toolbar.module.scss";
-import { formatString } from "../../utilities/utilities";
 
-interface IToolBarProps {
-    setActiveParams: Dispatch<SetStateAction<IParamsGamesList>>;
-}
+function Toolbar() {
+    const activeParams = useSelector(
+        (state: RootState) => state.activeParams.activeParams
+    );
+    const dispatch = useDispatch();
 
-function Toolbar({ setActiveParams }: IToolBarProps) {
     const checkHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setActiveParams((prev) => ({
-            ...prev,
+        const newParams = {
+            ...activeParams,
             [formatString(e.target.name)]: formatString(e.target.value),
-        }));
+        };
+        dispatch(addParams(newParams));
     };
 
     const addFilterCol = (options: Array<string>, title: string) => {
@@ -32,6 +36,15 @@ function Toolbar({ setActiveParams }: IToolBarProps) {
                             name={title}
                             value={el}
                             onChange={(e) => checkHandler(e)}
+                            checked={
+                                activeParams[
+                                    formatString(
+                                        title
+                                    ) as keyof typeof activeParams
+                                ] === formatString(el)
+                                    ? true
+                                    : false
+                            }
                         />
                     ))}
                 </Form.Group>
