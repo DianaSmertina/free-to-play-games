@@ -27,3 +27,9 @@ export interface IGameExtended extends IGame {
     }>;
     status: string;
 }
+
+export interface IParamsGamesList {
+    platform?: string;
+    category?: string;
+    'sort-by'?: string;
+}

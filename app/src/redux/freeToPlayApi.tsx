@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { IGame, IGameExtended } from "../types/types";
+import { IGame, IGameExtended, IParamsGamesList } from "../types/types";
 const key = import.meta.env.VITE_API_KEY;
 
 export const freeToPlayApi = createApi({
@@ -16,8 +16,13 @@ export const freeToPlayApi = createApi({
         },
     }),
     endpoints: (builder) => ({
-        getAllGames: builder.query<Array<IGame>, void>({
-            query: () => "games",
+        getAllGames: builder.query<Array<IGame>, IParamsGamesList>({
+            query: (params) => {
+                return {
+                    url: "games",
+                    params: params,
+                };
+            },
         }),
         getGameById: builder.query<IGameExtended, string>({
             query: (id) => {
@@ -26,6 +31,7 @@ export const freeToPlayApi = createApi({
                     params: { id },
                 };
             },
+            keepUnusedDataFor: 300,
         }),
     }),
 });

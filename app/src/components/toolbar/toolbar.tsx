@@ -1,34 +1,52 @@
-import { Col, InputGroup, Row } from "react-bootstrap";
-import { useGetAllGamesQuery } from "../../redux/freeToPlayApi";
+import { Col, Row, Form } from "react-bootstrap";
+import { ChangeEvent, Dispatch, SetStateAction } from "react";
+import { IParamsGamesList } from "../../types/types";
+import { platforms, sortBy, tags } from "../../assets/data";
 
-function Toolbar() {
-    const { data } = useGetAllGamesQuery();
-    const genres = new Set(data?.map((el) => el.genre));
-    const platforms = new Set(data?.map((el) => el.platform));
+interface IToolBarProps {
+    setActiveParams: Dispatch<SetStateAction<IParamsGamesList>>;
+}
 
-    const addFilters = (options: Set<string>) => {
-        return Array.from(options).map((el) => (
-            <InputGroup key={el}>
-                <InputGroup.Checkbox value={el} />
-                <InputGroup.Text style={{ width: "70%" }}>{el}</InputGroup.Text>
-            </InputGroup>
-        ));
+function Toolbar({setActiveParams}: IToolBarProps) {
+    const formattingString = (str: string) => {
+        return str.toLowerCase().replace(" ", "-");
+    };
+
+    const checkHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        setActiveParams((prev) => ({
+            ...prev,
+            [formattingString(e.target.name)]: formattingString(e.target.value),
+        }));
+    };
+
+    const addFilterCol = (options: Array<string>, title: string) => {
+        return (
+            <Col>
+                <div className="h2">{title}</div>
+                <Form.Group>
+                    {options.map((el) => (
+                        <Form.Check
+                            key={el}
+                            type="radio"
+                            label={el}
+                            id={`${title}-${el}`}
+                            name={title}
+                            value={el}
+                            onChange={(e) => checkHandler(e)}
+                        />
+                    ))}
+                </Form.Group>
+            </Col>
+        );
     };
 
     return (
         <Col xs={3} className="border">
-            {data && (
-                <Row className="flex-column g-2 justify-content-center">
-                    <Col>
-                        <div className="h2">Genres</div>
-                        {addFilters(genres)}
-                    </Col>
-                    <Col>
-                        <div className="h2">Platforms</div>
-                        {addFilters(platforms)}
-                    </Col>
-                </Row>
-            )}
+            <Row className="flex-column g-2 justify-content-center">
+                {addFilterCol(tags, "Category")}
+                {addFilterCol(platforms, "Platforms")}
+                {addFilterCol(sortBy, "Sort by")}
+            </Row>
         </Col>
     );
 }
