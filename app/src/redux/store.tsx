@@ -5,9 +5,11 @@ import {
 } from "@reduxjs/toolkit";
 import { freeToPlayApi } from "./freeToPlayApi";
 import paramsReducer from './paramsSlice';
+import pageReducer from './pageSlice';
 
 const rootReducer = combineReducers({
     activeParams: paramsReducer,
+    page: pageReducer,
     [freeToPlayApi.reducerPath]: freeToPlayApi.reducer,
 });
 

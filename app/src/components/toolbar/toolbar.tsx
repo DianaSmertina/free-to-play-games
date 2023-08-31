@@ -4,7 +4,7 @@ import { platforms, sortBy, tags } from "../../assets/data";
 import { formatString } from "../../utilities/utilities";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import { addParams } from "../../redux/paramsSlice";
+import { setParams } from "../../redux/paramsSlice";
 
 import styles from "./toolbar.module.scss";
 
@@ -19,7 +19,7 @@ function Toolbar() {
             ...activeParams,
             [formatString(e.target.name)]: formatString(e.target.value),
         };
-        dispatch(addParams(newParams));
+        dispatch(setParams(newParams));
     };
 
     const addFilterCol = (options: Array<string>, title: string) => {
@@ -53,16 +53,22 @@ function Toolbar() {
     };
 
     const resetHandler = () => {
-        dispatch(addParams({}));
-    }
+        dispatch(setParams({}));
+    };
 
     return (
         <Col md={2} sm={3} xs={4} className="px-4">
-            <Row className={`flex-column g-2 justify-content-center` + styles.container}>
+            <Row
+                className={
+                    `flex-column g-2 justify-content-center` + styles.container
+                }
+            >
                 {addFilterCol(tags, "Category")}
                 {addFilterCol(platforms, "Platforms")}
                 {addFilterCol(sortBy, "Sort by")}
-                <Button onClick={resetHandler} className="my-3">Reset</Button>
+                <Button onClick={resetHandler} className="my-3">
+                    Reset
+                </Button>
             </Row>
         </Col>
     );

@@ -1,15 +1,19 @@
 import { Col, Row, Pagination } from "react-bootstrap";
 import Loading from "../loading/loading";
 import CardTemplate from "../cardTemplate/cardTemplate";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { RootState } from "../../redux/store";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useGetAllGamesQuery } from "../../redux/freeToPlayApi";
+import { setPage } from "../../redux/pageSlice";
 
 function Cards() {
-    const [page, setPage] = useState(1);
-    const activeParams = useSelector((state: RootState) => state.activeParams.activeParams);
+    const activeParams = useSelector(
+        (state: RootState) => state.activeParams.activeParams
+    );
     const { data, isError, isFetching } = useGetAllGamesQuery(activeParams);
+    const page = useSelector((state: RootState) => state.page.page);
+    const dispatch = useDispatch();
     const CARDS_ON_PAGE = 30;
 
     const addPagination = () => {
@@ -18,7 +22,7 @@ function Cards() {
             <Pagination.Item
                 key={i + 1}
                 active={i + 1 === page}
-                onClick={() => setPage(i + 1)}
+                onClick={() => dispatch(setPage(i + 1))}
             >
                 {i + 1}
             </Pagination.Item>
@@ -42,7 +46,6 @@ function Cards() {
                     data
                         .slice((page - 1) * CARDS_ON_PAGE, page * CARDS_ON_PAGE)
                         .map((el) => <CardTemplate key={el.id} data={el} />)}
-
                 {data && (
                     <Pagination className="d-flex w-100 flex-wrap justify-content-center">
                         <Pagination.First />
