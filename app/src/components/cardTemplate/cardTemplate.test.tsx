@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 
 import CardTemplate from "./CardTemplate";
-import { gameForTest } from "../../mocks/handler";
+import { gameForTest } from "../../mocks/mockData";
 
 describe("Card tests", () => {
     it("all require elements should be rendered", () => {
