@@ -12,19 +12,19 @@ describe("Game component tests", () => {
                 <Game data={extendedGame} />
             </BrowserRouter>
         );
-        expect(screen.getByText("Windows 10 64-bit")).toBeInTheDocument();
+        expect(screen.getByText("Os: Windows 10 64-bit")).toBeInTheDocument();
         expect(
             screen.getByText("Developer: Blizzard Entertainment")
         ).toBeInTheDocument();
         expect(
-            screen.getByText("Intel Core i3 or AMD Phenom X3 8650")
+            screen.getByText("Processor: Intel Core i3 or AMD Phenom X3 8650")
         ).toBeInTheDocument();
-        expect(screen.getByText("6 GB")).toBeInTheDocument();
+        expect(screen.getByText("Memory: 6 GB")).toBeInTheDocument();
         expect(
             screen.getByText(
-                "NVIDIA GeForce GTX 600 series or AMD Radeon HD 7000 series"
+                "Graphics: NVIDIA GeForce GTX 600 series or AMD Radeon HD 7000 series"
             )
         ).toBeInTheDocument();
-        expect(screen.getByText("50 GB")).toBeInTheDocument();
+        expect(screen.getByText("Storage: 50 GB")).toBeInTheDocument();
     });
 });

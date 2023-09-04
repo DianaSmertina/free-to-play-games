@@ -16,7 +16,7 @@ export const handlers = [rest.get(
     }
 ),
 rest.get(
-    "https://free-to-play-games-database.p.rapidapi.com/api/game?id=540",
+    "https://free-to-play-games-database.p.rapidapi.com/api/game",
     (_: RestRequest, res: ResponseComposition, ctx: RestContext) => {
         return res(
             ctx.status(200),
