@@ -2,11 +2,11 @@ import { Col, Row, Pagination } from "react-bootstrap";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import Loading from "../loading/Loading";
+import Loading from "../loading/loading";
 import { RootState } from "../../redux/store";
 import { useGetAllGamesQuery } from "../../redux/freeToPlayApi";
 import { setPage } from "../../redux/pageSlice";
-import CardTemplate from "../cardTemplate/CardTemplate";
+import CardTemplate from "../cardTemplate/cardTemplate";
 
 function Cards() {
     const activeParams = useSelector(

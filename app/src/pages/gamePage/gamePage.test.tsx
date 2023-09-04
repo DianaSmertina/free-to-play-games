@@ -4,7 +4,7 @@ import { screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 
 import { renderWithProviders } from "../../utilities/testUtilities";
-import GamePage from "./GamePage";
+import GamePage from "./gamePage";
 
 describe("Game page generates", () => {
     it("there is data on the page", async () => {

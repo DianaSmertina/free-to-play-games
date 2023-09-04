@@ -1,8 +1,8 @@
-import Game from "../Game";
+import Game from "../game";
 import { useGetGameByIdQuery } from "../../../redux/freeToPlayApi";
-import Loading from "../../loading/Loading";
+import Loading from "../../loading/loading";
 import { setGameDataCookie } from "../../../utilities/utilities";
-import BackButton from "../../backButton.tsx/BackButton";
+import BackButton from "../../backButton.tsx/backButton";
 
 function GameFromRTK({ gameId }: { gameId: string | undefined }) {
     const { data, isError, isFetching } = useGetGameByIdQuery(gameId || "");

@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 
-import CardTemplate from "./CardTemplate";
+import CardTemplate from "./cardTemplate";
 import { gameForTest } from "../../mocks/mockData";
 
 describe("Card tests", () => {

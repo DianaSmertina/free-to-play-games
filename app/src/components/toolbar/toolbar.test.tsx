@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import { screen, fireEvent } from "@testing-library/react";
 import "whatwg-fetch";
 
-import Toolbar from "./Toolbar";
+import Toolbar from "./toolbar";
 import { renderWithProviders } from "../../utilities/testUtilities";
 import { tags, platforms, sortBy } from "../../assets/data";
 
@@ -19,7 +19,7 @@ describe("Toolbar is working", () => {
         const radio = screen.getAllByRole("radio")[0];
         fireEvent.click(radio);
         expect(radio).toBeChecked();
-    })
+    });
 
     it("all radio should be unchecked after reset button clicked", () => {
         renderWithProviders(<Toolbar />);
@@ -28,8 +28,8 @@ describe("Toolbar is working", () => {
         fireEvent.click(clickedRadio);
         const resetBtn = screen.getByRole("button");
         fireEvent.click(resetBtn);
-        allRadio.forEach(radioButton => {
+        allRadio.forEach((radioButton) => {
             expect(radioButton).not.toBeChecked();
         });
-    })
+    });
 });

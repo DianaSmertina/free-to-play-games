@@ -2,7 +2,7 @@ import { Col, Row, Image, ListGroup, Carousel } from "react-bootstrap";
 
 import { IGameExtended } from "../../types/types";
 import { formatDate } from "../../utilities/utilities";
-import BackButton from "../backButton.tsx/BackButton";
+import BackButton from "../backButton.tsx/backButton";
 
 import styles from "./game.module.scss";
 
@@ -46,7 +46,9 @@ function Game({ data }: { data: IGameExtended }) {
                                   data.minimum_system_requirements
                               ).map((el) => (
                                   <ListGroup.Item key={el[0]}>
-                                      {el[0].charAt(0).toUpperCase() + el[0].slice(1)}: {el[1]}
+                                      {el[0].charAt(0).toUpperCase() +
+                                          el[0].slice(1)}
+                                      : {el[1]}
                                   </ListGroup.Item>
                               ))
                             : null}

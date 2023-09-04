@@ -4,7 +4,7 @@ import { screen, within } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 
 import { renderWithProviders } from "../../utilities/testUtilities";
-import Cards from "./Cards";
+import Cards from "./cards";
 
 describe("Cards generates", () => {
     it("first page contains only 30 cards", async () => {

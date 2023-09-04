@@ -3,9 +3,9 @@ import { Row } from "react-bootstrap";
 import { useState } from "react";
 
 import { getGameDataCookie } from "../../utilities/utilities";
-import GameFromCookies from "../../components/game/gameFromCookies/GameFromCookies";
+import GameFromCookies from "../../components/game/gameFromCookies/gameFromCookies";
 import { IGameExtended } from "../../types/types";
-import GameFromRTK from "../../components/game/gameFromRTK/GameFromRTK";
+import GameFromRTK from "../../components/game/gameFromRTK/gameFromRTK";
 
 function GamePage() {
     const { gameId } = useParams();
